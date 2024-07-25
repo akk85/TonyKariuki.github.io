@@ -48,4 +48,4 @@ I welcome contributions to improve the website. If you have suggestions or find 
 
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE)
