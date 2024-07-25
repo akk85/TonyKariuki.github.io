@@ -40,7 +40,7 @@ This website showcases a variety of skills including but not limited to:
 Feel free to reach out to me via:
 - **Email**: [akk85@cornell.edu](mailto:akk85@cornell.edu)
 - **GitHub**: [Tony Kariuki](https://github.com/akk85)
-- **LinkedIn**: [Tony Kariuki](https://www.linkedin.com/in/tony-kariuki)
+- **LinkedIn**: [Tony Kariuki](https://www.linkedin.com/in/antony-kariuki/)
 
 
 ## Contributing
