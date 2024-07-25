@@ -1,8 +1,8 @@
-# Tony Kariuki's Portfolio
+Tony Kariuki's Portfolio
 
 Welcome to the repository for my personal portfolio website. This website showcases my projects, skills, and achievements in the field of Embedded Software Engineering, AI, and other related areas. 
 
-## Table of Contents
+Table of Contents
 - [About](#about)
 - [Projects](#projects)
 - [Skills](#skills)
@@ -11,11 +11,11 @@ Welcome to the repository for my personal portfolio website. This website showca
 - [Contributing](#contributing)
 - [License](#license)
 
-## About
+About
 
 This portfolio website is designed to highlight my professional journey, including independent and team-based projects. It also provides a platform for potential employers, collaborators, and anyone interested in my work to get in touch with me.
 
-## Projects
+Projects
 
 Some of the key projects featured on this website include:
 - **Smart Adaptive Streetlights**: An intelligent lighting system that adjusts LED brightness based on ambient light and motion detection.
@@ -23,7 +23,7 @@ Some of the key projects featured on this website include:
 - **RFID Door Lock System**: A secure door lock mechanism using RFID technology.
 - **Sudoku Game**: A three-level Sudoku game with an interactive user experience and algorithmic solutions.
 
-## Skills
+Skills
 
 This website showcases a variety of skills including but not limited to:
 - Embedded Systems
@@ -32,7 +32,7 @@ This website showcases a variety of skills including but not limited to:
 - Web Development
 - Hardware Integration
 
-## Contact
+Contact
 
 Feel free to reach out to me via:
 - **Email**: [akk85@cornell.edu](mailto:akk85@cornell.edu)
