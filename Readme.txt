@@ -1,6 +1,6 @@
 # Tony Kariuki's Portfolio
 
-Welcome to the repository for my personal portfolio website. This website showcases my projects, skills, and achievements in the field of Embedded Software Engineering, AI, and other related areas. 
+Welcome to the repository for my personal portfolio website. This website showcases my projects, skills, and achievements in the field of Embedded Software Engineering, AI, and other related areas.
 
 ## Table of Contents
 - [About](#about)
@@ -40,3 +40,10 @@ Feel free to reach out to me via:
 - **GitHub**: [Tony Kariuki](https://github.com/akk85)
 - **LinkedIn**: [Tony Kariuki](https://www.linkedin.com/in/tony-kariuki)
 
+## Setup
+
+To set up this project locally, follow these steps:
+
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/akk85/TonyKariuki.github.io.git
