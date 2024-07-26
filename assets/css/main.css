@@ -245,6 +245,14 @@ h6 {
   color: var(--contrast-color);
   background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
 }
+.header .header-copyright {
+  margin-top: auto; /* Push the copyright notice to the bottom */
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  color: #fff; /* Change text color */
+  background: none; /* Remove background color */
+}
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -544,7 +552,7 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 100vh;
+  min-height: 60vh;
   position: relative;
   padding: 80px 0;
   display: flex;
@@ -691,38 +699,39 @@ section,
 # Skills Section
 --------------------------------------------------------------*/
 .skills .progress {
-  height: 60px;
+  display: none; /* Hide the progress bars */
+}
+
+.skill-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.skill-item {
+  text-align: center;
+  margin: 20px;
+}
+
+.skill-item img {
+  max-width: 100px;
+  max-height: 100px;
   display: block;
-  background: none;
-  border-radius: 0;
+  margin: 0 auto 10px;
 }
 
-.skills .progress .skill {
-  color: var(--heading-color);
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: var(--heading-font);
+.skill-item p {
+  color: #000;
+  font-size: 16px;
+  margin: 0;
+  font-weight: 500;
+  background-color: #f0e4e4;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10p
 }
 
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: var(--accent-color);
-}
 
 /*--------------------------------------------------------------
 # Resume Section
