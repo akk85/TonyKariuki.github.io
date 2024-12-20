@@ -115,3 +115,8 @@ footer {
     }
 }
 
+video {
+    width: 640px;
+    height: 360px;
+    background: url('path/to/your/resized-poster.jpg') center center / cover no-repeat;
+}
