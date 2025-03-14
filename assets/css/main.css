@@ -1270,6 +1270,16 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
 
+.portfolio-item.ongoing .portfolio-info h4::after {
+  content: " (Ongoing)";
+  color: var(--accent-color); /* Teal #00ADB5 */
+  font-size: 0.9em;
+  font-style: italic;
+}
+.portfolio-item.ongoing .portfolio-content {
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 15px rgba(60, 10, 14, 0.3);
+}
 /*--------------------------------------------------------------
 # Service Details Section
 --------------------------------------------------------------*/

@@ -134,7 +134,35 @@
     selector: '.glightbox'
   });
 
-
+  function initWaveform() {
+    const canvas = document.getElementById("waveform");
+    const ctx = canvas.getContext("2d");
+    let animationFrame;
+  
+    canvas.width = canvas.parentElement.offsetWidth;
+    let time = 0;
+  
+    function drawWave() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.strokeStyle = "#00ADB5";
+      ctx.lineWidth = 2;
+  
+      for (let x = 0; x < canvas.width; x++) {
+        const y = Math.sin(x * 0.01 + time) * 50 + canvas.height / 2;
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      time += 0.05;
+      animationFrame = requestAnimationFrame(drawWave);
+    }
+    drawWave();
+  
+    window.addEventListener("resize", () => {
+      canvas.width = canvas.parentElement.offsetWidth;
+    });
+  }
+  initWaveform();
 
   
 /**
@@ -170,6 +198,18 @@ document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
 
 });
 
+document.querySelectorAll(".portfolio-item").forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    gsap.to(item, {
+      boxShadow: "0 0 30px rgba(0, 173, 181, 0.7)",
+      scale: 1.05,
+      duration: 0.3,
+    });
+  });
+  item.addEventListener("mouseleave", () => {
+    gsap.to(item, { boxShadow: "0 0 0 rgba(0, 173, 181, 0)", scale: 1, duration: 0.3 });
+  });
+});
 
   /**
    * Init swiper sliders
@@ -296,3 +336,32 @@ document.querySelectorAll(".navmenu a").forEach((link) => {
     gsap.to(link, { color: "#D3D3D3", x: 0, duration: 0.3 });
   });
 });
+
+
+// Highlight Ongoing Project
+const ongoingItem = document.querySelector(".portfolio-item.ongoing");
+if (ongoingItem) {
+  gsap.to(ongoingItem, {
+    scale: 1.02,
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut",
+  });
+
+  ongoingItem.addEventListener("mouseenter", () => {
+    gsap.to(ongoingItem, {
+      boxShadow: "0 0 30px rgba(0, 173, 181, 0.7)",
+      scale: 1.05,
+      duration: 0.3,
+      overwrite: true,
+    });
+  });
+  ongoingItem.addEventListener("mouseleave", () => {
+    gsap.to(ongoingItem, {
+      boxShadow: "0 0 15px rgba(0, 173, 181, 0.3)",
+      scale: 1,
+      duration: 0.3,
+    });
+  });
+}
