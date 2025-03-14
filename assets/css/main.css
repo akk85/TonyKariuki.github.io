@@ -573,6 +573,7 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .hero img {
@@ -584,6 +585,23 @@ section,
   object-fit: cover;
 
   z-index: 1;
+}
+
+.hero-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Behind text and 3D container */
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Scales image to cover container while preserving aspect ratio */
+  object-position: center; /* Centers the image */
+  display: block;
 }
 
 .hero:before {
@@ -633,12 +651,29 @@ section,
 }
 
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
+  .hero {
+    padding: 40px 0; /* Reduce padding for smaller screens */
+    min-height: 50vh; /* Shorter height on mobile */
   }
-
+  .hero h2 {
+    font-size: 32px; /* Smaller heading */
+  }
   .hero p {
-    font-size: 20px;
+    font-size: 18px; /* Smaller text */
+  }
+  .hero-bg {
+    object-fit: cover; /* Ensures no distortion */
+    height: 100%; /* Full height of container */
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 576px) {
+  .hero h2 {
+    font-size: 24px;
+  }
+  .hero p {
+    font-size: 16px;
   }
 }
 
