@@ -12,19 +12,19 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Montserrat", sans-serif;
+  --heading-font: "Montserrat", sans-serif;
+  --nav-font: "Montserrat", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --background-color: #1E1E1E; /* Deep gray-black for body background */
+  --default-color: #D3D3D3; /* Light gray for text */
+  --heading-color: #FFFFFF; /* White for headings */
+  --accent-color: #00ADB5; /* Teal for buttons/links (tech vibe) */
+  --surface-color: #2D2D2D; /* Darker card backgrounds */
+  --contrast-color: #FFFFFF; /* White for contrast text */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -40,16 +40,16 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f4fafd;
-  --surface-color: #ffffff;
+  --background-color: #252525; /* Slightly lighter dark for contrast */
+  --surface-color: #333333;
 }
 
 .dark-background {
-  --background-color: #040b14;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #151f2b;
-  --contrast-color: #ffffff;
+  --background-color: #1E1E1E;
+  --default-color: #D3D3D3;
+  --heading-color: #FFFFFF;
+  --surface-color: #2D2D2D;
+  --contrast-color: #FFFFFF;
 }
 
 /* Smooth scroll */
@@ -161,7 +161,8 @@ h6 {
   margin: 15px auto;
   display: block;
   width: 120px;
-  border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border: 4px solid #00ADB5;
+  box-shadow: 0 0 15px rgba(0, 173, 181, 0.3);
 }
 
 .header .logo {
@@ -190,8 +191,8 @@ h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  color: var(--default-color);
+  background: #2D2D2D;
+  color: #D3D3D3;
   margin: 0 2px;
   border-radius: 50%;
   text-align: center;
@@ -201,8 +202,8 @@ h6 {
 }
 
 .header .social-links a:hover {
-  color: var(--contrast-color);
-  background: var(--accent-color);
+  background: #00ADB5;
+  color: #FFFFFF;
 }
 
 @media (min-width: 1200px) {
@@ -550,6 +551,20 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+/* Hero Particle Background */
+#hero {
+  position: relative;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 .hero {
   width: 100%;
   min-height: 60vh;
@@ -685,6 +700,8 @@ section,
   display: block;
   font-weight: 700;
   margin-left: 60px;
+  font-family: "Montserrat", sans-serif;
+  color: #00ADB5;
 }
 
 .stats .stats-item p {
@@ -712,6 +729,12 @@ section,
 .skill-item {
   text-align: center;
   margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(0, 173, 181, 0.4);
 }
 
 .skill-item img {
@@ -722,17 +745,29 @@ section,
 }
 
 .skill-item p {
-  color: #000;
   font-size: 16px;
   margin: 0;
   font-weight: 500;
-  background-color: #f0e4e4;
   padding: 5px;
   border-radius: 5px;
-  margin-top: 10p
+  margin-top: 10p;
+  background: #2D2D2D;
+  color: #D3D3D3;
 }
 
-
+/* Skills Tooltip */
+.skill-tooltip {
+  position: absolute;
+  background: #2D2D2D;
+  color: #00ADB5;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
@@ -838,7 +873,14 @@ section,
 .portfolio .portfolio-content {
   position: relative;
   overflow: hidden;
+  border: 1px solid #333333;
+  border-radius: 10px;
 }
+
+.portfolio .portfolio-content:hover {
+  box-shadow: 0 0 20px rgba(0, 173, 181, 0.3);
+}
+
 
 .portfolio .portfolio-content img {
   transition: 0.3s;
@@ -903,6 +945,11 @@ section,
 
 .portfolio .portfolio-content:hover img {
   transform: scale(1.1);
+}
+
+/* Portfolio Glow */
+.portfolio-item {
+  transition: all 0.3s ease;
 }
 
 .portfolio-item img {
@@ -1288,6 +1335,29 @@ section,
   color: var(--accent-color);
 }
 
+
+/* 3D Canvas (if enabled) */
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  opacity: 0.3;
+}
+
+#three-js-container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3; /* Subtle overlay effect */
+  pointer-events: none; /* Allows clicking through to content */
+}
+.hero .container {
+  z-index: 3; /* Keeps text/buttons above the 3D layer */
+}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/

@@ -231,3 +231,68 @@ document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+// --- Scroll-Triggered Section Animations ---
+gsap.utils.toArray(".section-title").forEach((title) => {
+  gsap.from(title, {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: { trigger: title, start: "top 80%" },
+  });
+});
+
+// --- Portfolio Items: Circuit Glow Effect ---
+document.querySelectorAll(".portfolio-item").forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    gsap.to(item, { boxShadow: "0 0 20px rgba(0, 173, 181, 0.5)", duration: 0.3 });
+  });
+  item.addEventListener("mouseleave", () => {
+    gsap.to(item, { boxShadow: "0 0 0 rgba(0, 173, 181, 0)", duration: 0.3 });
+  });
+
+  gsap.from(item, {
+    opacity: 0,
+    scale: 0.9,
+    duration: 0.8,
+    scrollTrigger: { trigger: item, start: "top 85%" },
+  });
+});
+
+// --- Skills: Interactive Tooltip ---
+document.querySelectorAll(".skill-item").forEach((skill) => {
+  skill.addEventListener("click", () => {
+    const tooltip = document.createElement("div");
+    tooltip.className = "skill-tooltip";
+    tooltip.innerText = `Expertise in ${skill.querySelector("p").innerText.split(" ~")[0]}`;
+    skill.appendChild(tooltip);
+    gsap.fromTo(tooltip, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 });
+    setTimeout(() => {
+      gsap.to(tooltip, { opacity: 0, duration: 0.5, onComplete: () => tooltip.remove() });
+    }, 2000);
+  });
+});
+
+// --- Stats: Counter Animation ---
+gsap.utils.toArray(".stats-item .purecounter").forEach((counter) => {
+  gsap.from(counter, {
+    innerText: 0,
+    duration: 2,
+    ease: "power1.out",
+    snap: { innerText: 1 },
+    scrollTrigger: { trigger: counter, start: "top 90%" },
+    onUpdate: function () {
+      counter.innerText = Math.ceil(this.targets()[0].innerText);
+    },
+  });
+});
+
+// --- Interactive Navigation ---
+document.querySelectorAll(".navmenu a").forEach((link) => {
+  link.addEventListener("mouseenter", () => {
+    gsap.to(link, { color: "#00ADB5", x: 5, duration: 0.3 });
+  });
+  link.addEventListener("mouseleave", () => {
+    gsap.to(link, { color: "#D3D3D3", x: 0, duration: 0.3 });
+  });
+});
