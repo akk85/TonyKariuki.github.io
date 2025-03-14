@@ -364,7 +364,119 @@ if (ongoingItem) {
       duration: 0.3,
     });
   });
-  
 }
+// Hero Image Caption Interactivity
+const heroImageWrapper = document.querySelector(".hero-image-wrapper");
+const imageCaption = document.querySelector(".image-caption");
+
+// Desktop: Show on hover (handled by CSS)
+// Mobile: Toggle on click
+let isCaptionVisible = false;
+
+heroImageWrapper.addEventListener("click", (e) => {
+  if (window.innerWidth <= 768) { // Mobile breakpoint
+    isCaptionVisible = !isCaptionVisible;
+    gsap.to(imageCaption, {
+      opacity: isCaptionVisible ? 1 : 0,
+      y: isCaptionVisible ? 0 : 10,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+    e.preventDefault(); // Prevent unintended clicks
+  }
+});
+
+// Optional: Fade in caption with image
+gsap.from(".image-caption", {
+  opacity: 0,
+  y: 20,
+  duration: 1,
+  delay: 1.5, // Sync with hero text animation
+  ease: "power3.out",
+});
 
 
+document.querySelector(".caption-toggle").addEventListener("click", () => {
+  isCaptionVisible = !isCaptionVisible;
+  gsap.to(imageCaption, {
+    opacity: isCaptionVisible ? 1 : 0,
+    y: isCaptionVisible ? 0 : 10,
+    duration: 0.3,
+  });
+});
+
+// Initialize AOS
+AOS.init({
+  duration: 1000,
+  once: true,
+});
+
+// Register GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Particles.js for Hero
+particlesJS("hero", {
+  particles: {
+    number: { value: 80, density: { enable: true, value_area: 800 } },
+    color: { value: "#00ADB5" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5, random: true },
+    size: { value: 3, random: true },
+    line_linked: { enable: true, distance: 150, color: "#00ADB5", opacity: 0.4, width: 1 },
+    move: { enable: true, speed: 2, direction: "none", random: false, straight: false }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+    modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+  },
+  retina_detect: true
+});
+
+// Hero Text Animation
+gsap.from(".hero h2", { opacity: 0, y: 50, duration: 1.5, ease: "power3.out" });
+gsap.from(".hero p", { opacity: 0, y: 30, duration: 1.5, delay: 0.5, ease: "power3.out" });
+gsap.from(".hero .btn", { opacity: 0, scale: 0.8, duration: 1, delay: 1, ease: "back.out(1.7)" });
+
+// Circuit Caption Animation
+gsap.from(".circuit-caption", {
+  opacity: 0,
+  y: 20,
+  duration: 1,
+  delay: 1.5,
+  ease: "power3.out",
+});
+
+// Three.js Setup (your existing init3D function can remain)
+function init3D() {
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.querySelector("#three-js-container").appendChild(renderer.domElement);
+
+  const geometry = new THREE.PlaneGeometry(5, 3);
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load("assets/img/portfolio/ithaca_rev2.png");
+  const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide, transparent: true, opacity: 0.5 });
+  const circuitBoard = new THREE.Mesh(geometry, material);
+  scene.add(circuitBoard);
+
+  camera.position.z = 5;
+  scene.add(new THREE.AmbientLight(0xFFFFFF, 0.5));
+
+  function animate() {
+    requestAnimationFrame(animate);
+    circuitBoard.rotation.x += 0.005;
+    circuitBoard.rotation.y += 0.005;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+}
+init3D();
