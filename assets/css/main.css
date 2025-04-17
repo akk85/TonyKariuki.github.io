@@ -87,6 +87,13 @@ h6 {
   font-family: var(--heading-font);
 }
 
+p {
+  margin: 25px 0;
+  color: #ffffff;
+  font-size: 0.9em;
+}
+
+
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -964,6 +971,9 @@ section,
 
 .resume .resume-item ul {
   padding-left: 20px;
+  color: #ffffff;
+  font-size: 0.9em;
+  
 }
 
 .resume .resume-item ul li {

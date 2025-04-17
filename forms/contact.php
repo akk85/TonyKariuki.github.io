@@ -1,6 +1,5 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Replace contact@example.com with your real receiving email address
     $to = 'akk85@cornell.edu';
     
     $name = htmlspecialchars($_POST['name']);
